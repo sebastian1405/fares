@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Container,
+  DropdownButton,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
+import logo from "./images/logoFares.jpeg";
+import { Dropdown } from "bootstrap";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Navbar bg="success" expand="lg" variant="dark">
+      <Container>
+        <nav>
+          <a href="#">
+            <img
+              src={logo}
+              width="50"
+              height="50"
+              alt=""
+              class="rounded-circle"
+            />
+          </a>
+        </nav>
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          class="d-flex justify-content-end"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Login</Nav.Link>
+            <Nav.Link href="#nosotros"> Nosotros</Nav.Link>
+          </Nav>
+          <Nav bg="dark">
+            <NavDropdown title="My Account" id="collasible-nav-dropdown ">
+              <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Set Theme</NavDropdown.Item>
+              {/* <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">LogOut</NavDropdown.Item> */}
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
